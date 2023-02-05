@@ -1,7 +1,7 @@
-class Node {
+class Node8 {
     value: number;
-    prev: Node | null;
-    next: Node | null;
+    prev: Node8 | null;
+    next: Node8 | null;
 
     constructor(value: number) {
         this.value = value;
@@ -11,40 +11,40 @@ class Node {
 }
 
 class DoublyLinkedList {
-    head: Node;
-    tail: Node;
+    head: Node8;
+    tail: Node8;
     length: number;
 
     constructor(value: number) {
-        this.head = new Node(value);
+        this.head = new Node8(value);
         this.tail = this.head;
         this.length = 1;
     }
 
     append(value: number): DoublyLinkedList {
-        const newNode = new Node(value);
-        newNode.prev = this.tail;
-        this.tail.next = newNode;
-        this.tail = newNode;
+        const newNode8 = new Node8(value);
+        newNode8.prev = this.tail;
+        this.tail.next = newNode8;
+        this.tail = newNode8;
         this.length++;
         return this;
     }
 
     prepend(value: number): DoublyLinkedList {
-        const newNode = new Node(value);
-        newNode.next = this.head;
-        this.head.prev = newNode;
-        this.head = newNode;
+        const newNode8 = new Node8(value);
+        newNode8.next = this.head;
+        this.head.prev = newNode8;
+        this.head = newNode8;
         this.length++;
         return this;
     }
 
     printList(): void {
         const array: number[] = [];
-        let currentNode = this.head;
-        while (currentNode !== null) {
-            array.push(currentNode.value);
-            currentNode = currentNode.next!;
+        let currentNode8 = this.head;
+        while (currentNode8 !== null) {
+            array.push(currentNode8.value);
+            currentNode8 = currentNode8.next!;
         }
         console.log(array);
     }
@@ -54,37 +54,37 @@ class DoublyLinkedList {
             return this.append(value);
         }
 
-        const newNode = new Node(value);
+        const newNode8 = new Node8(value);
         const leader = this.traverseToIndex(index - 1);
         const follower = leader.next;
-        leader.next = newNode;
-        newNode.prev = leader;
-        newNode.next = follower;
-        follower!.prev = newNode;
+        leader.next = newNode8;
+        newNode8.prev = leader;
+        newNode8.next = follower;
+        follower!.prev = newNode8;
         this.length++;
         return this;
     }
 
-    traverseToIndex(index: number): Node {
+    traverseToIndex(index: number): Node8 {
         let counter = 0;
-        let currentNode = this.head;
+        let currentNode8 = this.head;
         while (counter !== index) {
-            currentNode = currentNode.next!;
+            currentNode8 = currentNode8.next!;
             counter++;
         }
-        return currentNode;
+        return currentNode8;
     }
 
     remove(index: number): DoublyLinkedList {
         const leader = this.traverseToIndex(index - 1);
-        const unwantedNode = leader.next;
-        leader.next = unwantedNode!.next;
-        unwantedNode!.next!.prev = leader;
+        const unwantedNode8 = leader.next;
+        leader.next = unwantedNode8!.next;
+        unwantedNode8!.next!.prev = leader;
         this.length--;
         return this;
     }
 
-    reverse(): DoublyLinkedList | Node {
+    reverse(): DoublyLinkedList | Node8 {
         if (!this.head.next) {
             return this.head;
         }
