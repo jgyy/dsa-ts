@@ -1,6 +1,6 @@
-class Node {
+class Node9 {
     value: string;
-    next: Node | null;
+    next: Node9 | null;
 
     constructor(value: string) {
         this.value = value;
@@ -9,8 +9,8 @@ class Node {
 }
 
 class Queue {
-    first: Node | null;
-    last: Node | null;
+    first: Node9 | null;
+    last: Node9 | null;
     length: number;
 
     constructor() {
@@ -19,25 +19,25 @@ class Queue {
         this.length = 0;
     }
 
-    peek(): Node | null {
+    peek(): Node9 | null {
         return this.first;
     }
 
     enqueue(value: string): Queue {
-        const newNode = new Node(value);
+        const newNode9 = new Node9(value);
         if (this.length === 0) {
-            this.first = newNode;
-            this.last = newNode;
+            this.first = newNode9;
+            this.last = newNode9;
         }
         else {
-            this.last!.next = newNode;
-            this.last = newNode;
+            this.last!.next = newNode9;
+            this.last = newNode9;
         }
         this.length++;
         return this;
     }
 
-    dequeue(): Node | null {
+    dequeue(): Node9 | null {
         if (!this.first) {
             return null;
         }
